@@ -2,9 +2,9 @@
 
 ## TODO
 
-- [ ] Afficher la liste des raccourcis clavier sur la page d'accueil.
-- [ ] Afficher la liste des logiciels sur la page Logiciels.
-- [ ] Afficher un message "Chargement en cours..." lorsque les données sont en cours de chargement.
+- [X] Afficher la liste des raccourcis clavier sur la page d'accueil.
+- [X] Afficher la liste des logiciels sur la page Logiciels.
+- [X] Afficher un message "Chargement en cours..." lorsque les données sont en cours de chargement.
 
 **Remarques**
 

@@ -14,22 +14,30 @@ function App() {
   const [software, setSoftware] = useState([]);
   const [loadingSoftware, setLoadingSoftare] = useState(true);
 
-  useEffect(() => {
+  function fetchShortcuts() {
     setLoadingShortcuts(true);
     fetch(`${ApiUrl}/shortcuts`)
         .then(res => res.json()
-        .then(data => {setShortcuts(data["hydra:member"]);}))
+            .then(data => {setShortcuts(data["hydra:member"]);}))
         .catch(error => console.log(error))
         .finally(() => setLoadingShortcuts(false));
-  }, [])
+  }
 
-  useEffect(() => {
+  function fetchSoftware() {
     setLoadingSoftare(true);
     fetch(`${ApiUrl}/software`)
         .then(res => res.json()
-        .then(data => {setSoftware(data["hydra:member"]);}))
+            .then(data => {setSoftware(data["hydra:member"]);}))
         .catch(error => console.log(error))
         .finally(() => setLoadingSoftare(false));
+  }
+
+  useEffect(() => {
+    fetchShortcuts()
+  }, [])
+
+  useEffect(() => {
+    fetchSoftware()
   }, [])
 
   let currentPage = null;
