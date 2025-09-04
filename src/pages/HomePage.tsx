@@ -1,7 +1,7 @@
 import ShortcutsCard from "../components/Cards/ShortcutsCard.tsx";
-import type {Collection, shortcut} from "../api.ts";
+import type {shortcut} from "../api.ts";
 
-export default function HomePage({shortcuts, loading}: {shortcuts: Collection<shortcut>[], loading: boolean}) {
+export default function HomePage({shortcuts, loading}: {shortcuts: shortcut[], loading: boolean}) {
     if (loading) {
         return <p>Chargement en cours...</p>;
     }

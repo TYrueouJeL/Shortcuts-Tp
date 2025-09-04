@@ -10,8 +10,3 @@ export interface software {
     "id": number;
     "name": string;
 }
-
-export interface Collection<T> {
-    "@type": "hydra-Collection";
-    "hydra:member": T[];
-}

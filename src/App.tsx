@@ -11,7 +11,8 @@ function App() {
   const [page, setPage] = useState<PageSlug>('home');
   const [shortcuts, setShortcuts] = useState([]);
   const [loadingShortcuts, setLoadingShortcuts] = useState(true);
-  const [softwares, setSoftwares] = useState([]);
+  const [software, setSoftware] = useState([]);
+  const [loadingSoftware, setLoadingSoftare] = useState(true);
 
   useEffect(() => {
     setLoadingShortcuts(true);
@@ -23,17 +24,19 @@ function App() {
   }, [])
 
   useEffect(() => {
-    setLoadingSoftares(true)
+    setLoadingSoftare(true);
+    fetch(`${ApiUrl}/software`)
         .then(res => res.json()
-        .then(data => {setSoftwares(data["hydra:member"]);}))
+        .then(data => {setSoftware(data["hydra:member"]);}))
         .catch(error => console.log(error))
+        .finally(() => setLoadingSoftare(false));
   }, [])
 
   let currentPage = null;
   if (page === 'home') {
     currentPage = <HomePage shortcuts={shortcuts} loading={loadingShortcuts}/>;
   } else if (page === 'software') {
-    currentPage = <SoftwarePage/>;
+    currentPage = <SoftwarePage software={software} loading={loadingSoftware}/>;
   }
 
   return (
